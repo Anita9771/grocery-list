@@ -1,0 +1,3 @@
+-Using the HTML provided, use DOM manipulation in javascript to dynamically create
+a grocery shopping list with delete buttons that could be used to delete list items when clicked
+-Submit by end of tomorrow

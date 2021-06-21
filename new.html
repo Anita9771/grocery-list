@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 8px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My shopping list</h1>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item" />
+      <button>Add item</button>
+    </div>
+
+    <ul></ul>
+
+    <script>
+      const addBtn = document.querySelector("button");
+      const ul = document.querySelector("ul");
+      const input = document.getElementById("item");
+
+      addBtn.addEventListener("click", () => {
+        // The input value must be declared within the function if not it wont work(tried it and it didn't work), i guess. lol
+        let inputValue = document.getElementById("item").value;
+        // Create a new li element
+        let li = document.createElement("li");
+
+        // Try to prevent empty strings and numbers from making the list
+        if (inputValue !== "" && !Number(inputValue)) {
+          // To hold the new-input value
+          newItem = document.createElement("p");
+          newItem.innerText = inputValue;
+          // Delete button
+          newBtn = document.createElement("button");
+          newBtn.innerText = "Delete";
+        } else {
+          return;
+        }
+        // Append both the p element and the button
+        li.appendChild(newItem);
+        li.appendChild(newBtn);
+        // Append the li to the ul
+        ul.appendChild(li);
+
+        // For delete button to work
+        newBtn.addEventListener("click", () => {
+          li.remove();
+        });
+
+        // So that the input clears after we have clicked the add-item button
+        document.getElementById("item").value = "";
+
+        // List styles
+        li.style.backgroundColor = "#eee";
+        li.style.border = "1px solid rgb(80, 86, 87)";
+        li.style.display = "flex";
+        li.style.alignItems = "center";
+        li.style.justifyContent = "space-between";
+        li.style.height = "20px";
+        li.style.width = "250px";
+        li.style.margin = "0 auto 20px";
+        li.style.padding = "5px 0px 5px 10px";
+        li.style.boxShadow = "5px 5px 10px rgba(68, 78, 78, 0.377)";
+        li.style.borderRadius = "5px";
+
+        // Button styles
+        newBtn.style.height = "30px";
+        newBtn.style.width = "50px";
+        newBtn.style.border = "0";
+        newBtn.style.borderLeft = "1px solid rgb(80, 86, 87)";
+        newBtn.style.backgroundColor = "red";
+        newBtn.style.borderRadius = "5px";
+        newBtn.style.color = "white"; //Oopsie! Changed the color.
+      });
+
+      //MORE STYLES....lmao...since we're to work with JS alone(that's what I feel the restriction is about)
+
+      // Body Styles
+      const body = document.querySelector("body");
+      body.style.background = "linear-gradient(to right, orange, brown, purple, pink, orange)";
+      body.style.fontFamily = "rubik, sans-serif";
+      body.style.fontSize = "16px";
+      body.style.display = "flex";
+      body.style.flexDirection = "column";
+      body.style.justifyContent = "center";
+      body.style.alignItems = "center";
+      body.style.boxSizing = "border-box";
+      body.style.margin = "0";
+      body.style.padding = "0";
+
+      // First div styles
+      const div = document.querySelector("div");
+      div.style.display = "flex";
+      div.style.justifyContent = "center";
+      div.style.alignItems = "center";
+      div.style.flexWrap = "wrap";
+      div.style.height = "60px";
+
+      // input styles
+      input.style.margin = "0 10px";
+      input.style.height = "20px";
+      input.style.width = "180px";
+      
+
+      // ul styles
+      ul.style.display = "flex";
+      ul.style.flexDirection = "column";
+      ul.style.justifyContent = "center";
+      ul.style.alignItems = "center";
+      ul.style.width = "280px";
+      ul.style.margin = "30px auto 0";
+      ul.style.padding = "0";
+
+      // Phew! How do I add hover effects in JS?
+      // Omon! this will be all oh, my tired is tired!
+      // Thank You sir for your selflessness.. Accolades are sent!!
+      // Twas fun DOMing this...
+    </script>
+  </body>
+</html>
